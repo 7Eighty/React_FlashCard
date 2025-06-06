@@ -1,18 +1,31 @@
 
 
-const { Card } = require('../db/models')
+const { Bmw } = require('../../db/models')
+
 
 class CardService {
   // * получение всех карточек
-  static async getAllCards() {
-    const cards = await Card.findAll()
+  static async getAllCardsBmw() {
+    const cards = await Bmw.findAll()
     const result = cards.map((el) => el.get({ plain: true }))
     return result
   }
 
+  //   static async getAllCardsElbrus() {
+  //   const cards = await Elbrus.findAll()
+  //   const result = cards.map((el) => el.get({ plain: true }))
+  //   return result
+  // }
+
+  //   static async getAllCardsGeography() {
+  //   const cards = await Geography.findAll()
+  //   const result = cards.map((el) => el.get({ plain: true }))
+  //   return result
+  // }
+
   // * Получение одноq карточки
-  static async getOneCard(id) {
-    const card = await Card.findByPk(id)
+  static async getOneCard(question) {
+    const card = await Bmw.findOne(question)
     const result = card.get({ plain: true })
     return result
   }

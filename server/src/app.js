@@ -1,6 +1,9 @@
 const morgan = require('morgan');
 const express = require('express');
-const serverConfig = require('./config/serverConfig')
+const serverConfig = require('./config/serverConfig');
+const indexRouter = require('./routes/index.router');
+
+
 
 const app = express();
 
@@ -12,11 +15,7 @@ app.use(morgan('dev')); // * подробное логирование запр�
 app.use(express.urlencoded({ extended: true })); // * читать данные из тела запросов. ! ИНАЧЕ В req.body БУДЕТ undefined
 app.use(express.json()); // * читать JSON-данные из тела запросов req.body
 
-
-
-
-
-
+app.use("/", indexRouter)
 
 
 
