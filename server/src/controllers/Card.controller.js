@@ -1,14 +1,14 @@
 
 
-const CardService = require('../services/User.service')
-// const { formatResponse } = require('../utils/formatResponse')
-// const UserValidator = require('../utils/User.validator')
+const CardService = require('../services/Card.service')
+const { formatResponse } = require('../utils/formatResponse')
 
 class CardController {
   // * контроллер на получение всех
   static async getAll(req, res) {
+
     try {
-      const result = await CardService.getAllCards()
+      const result = await CardService.getAllCardsBmw()
       res.status(200).json(formatResponse({
         statusCode: 200, message: 'Все темы викторины',
         data: result

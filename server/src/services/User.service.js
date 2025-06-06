@@ -1,17 +1,18 @@
 
-const { User } = require('../db/models')
+const { User } = require("../../db/models")
 
 class UserService {
   // * получение всех пользователей
   static async getAllUsers() {
     const users = await User.findAll()
     const result = users.map((el) => el.get({ plain: true }))
-    return result
+    console.log(result);
+     return result
   }
 
   // * Получение одного пользователя
   static async getOneUser(id) {
-    const user = await User.findByPk(id)
+    const user = await User.findOne( { where: { id }})
     const result = user.get({ plain: true })
     return result
   }
