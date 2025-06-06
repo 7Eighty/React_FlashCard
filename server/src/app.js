@@ -1,6 +1,6 @@
 const morgan = require('morgan');
 const express = require('express');
-const serverConfig = require('./config/serverConfig');
+const serverConfig = require('./config/serverConfig')
 
 const app = express();
 
@@ -14,6 +14,12 @@ app.use(express.json()); // * читать JSON-данные из тела за�
 
 
 
+
+
+
+
+
+
 app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
+    console.log(`Сервер запущен на порту ${PORT}`);
 });
