@@ -53,11 +53,7 @@ class UserController {
 
   static async register(req, res) {
     try {
-      const { isValid, error } = await UserValidator.validate({
-        login,
-        mail,
-        password,
-      });
+      const { isValid, error } = await UserValidator.validate({ login, mail, password });
       if (!isValid) {
         res.status(400).json(
           formatResponse({
@@ -67,11 +63,7 @@ class UserController {
           })
         );
       } else {
-        const newUser = await UserService.registerUser({
-          login,
-          mail,
-          password,
-        });
+        const newUser = await UserService.registerUser({ login, mail, password });
         console.log("user:", newUser);
         res.status(200).json(
           formatResponse({

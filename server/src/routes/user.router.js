@@ -8,15 +8,16 @@ const path = require('path')
 const UserController = require('../controllers/User.controller')
 
 
-UserRouter.get('/register', (req, res) => {
-  console.log(req.query)
-  res.status(200).sendFile(path.resolve(__dirname, '../registerForm.html'))
-})
+// UserRouter.get('/register', (req, res) => {
+//   console.log(req.query)
+//   res.status(200).sendFile(path.resolve(__dirname, '../registerForm.html'))
+// })
 
 //! адресa!
 
 UserRouter
   .get('/', UserController.getAll)
+  .post('/register', UserController.register)
     // .post('/register', checkBody, UserController.register)
   // .delete('/:id', checkId, UserController.delete)
   .get('/:id', UserController.getOne)
